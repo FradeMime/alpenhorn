@@ -4,7 +4,7 @@
 
 package alpenhorn
 
-import "vuvuzela.io/alpenhorn/config"
+import "alpenhorn/config"
 
 func (c *Client) Bootstrap(addFriendConfig, dialingConfig *config.SignedConfig) error {
 	if err := addFriendConfig.Validate(); err != nil {

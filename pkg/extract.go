@@ -16,7 +16,8 @@ import (
 	"github.com/dgraph-io/badger"
 	"golang.org/x/crypto/nacl/box"
 
-	"vuvuzela.io/alpenhorn/log"
+	"alpenhorn/log"
+
 	"vuvuzela.io/crypto/bls"
 	"vuvuzela.io/crypto/ibe"
 )

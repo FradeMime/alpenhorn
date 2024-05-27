@@ -15,8 +15,9 @@ import (
 
 	"golang.org/x/crypto/nacl/box"
 
-	"vuvuzela.io/alpenhorn/edhttp"
-	"vuvuzela.io/alpenhorn/errors"
+	"alpenhorn/edhttp"
+	"alpenhorn/errors"
+
 	"vuvuzela.io/crypto/bls"
 	"vuvuzela.io/crypto/ibe"
 )

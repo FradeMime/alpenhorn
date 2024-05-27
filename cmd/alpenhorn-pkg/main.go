@@ -20,14 +20,18 @@ import (
 	"text/template"
 	"time"
 
-	"vuvuzela.io/alpenhorn/cmd/cmdutil"
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/edtls"
-	"vuvuzela.io/alpenhorn/encoding/toml"
-	"vuvuzela.io/alpenhorn/errors"
-	"vuvuzela.io/alpenhorn/internal/alplog"
-	"vuvuzela.io/alpenhorn/log"
-	"vuvuzela.io/alpenhorn/pkg"
+	"alpenhorn/internal/alplog"
+
+	"alpenhorn/config"
+
+	"alpenhorn/pkg"
+
+	"alpenhorn/cmd/cmdutil"
+	"alpenhorn/edtls"
+	"alpenhorn/encoding/toml"
+	"alpenhorn/errors"
+	"alpenhorn/log"
+
 	"vuvuzela.io/crypto/rand"
 )
 

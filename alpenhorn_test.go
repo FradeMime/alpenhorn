@@ -16,16 +16,20 @@ import (
 	"testing"
 	"time"
 
-	"vuvuzela.io/alpenhorn/cdn"
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/coordinator"
-	"vuvuzela.io/alpenhorn/edtls"
-	"vuvuzela.io/alpenhorn/internal/alplog"
-	"vuvuzela.io/alpenhorn/log"
-	"vuvuzela.io/alpenhorn/pkg"
+	"alpenhorn/internal/alplog"
+	"alpenhorn/internal/debug"
+	"alpenhorn/internal/mock"
+
+	// "alpenhorn/localInternal/internal/debug"
+
+	"alpenhorn/cdn"
+	"alpenhorn/config"
+	"alpenhorn/coordinator"
+	"alpenhorn/edtls"
+	"alpenhorn/log"
+	"alpenhorn/pkg"
+
 	"vuvuzela.io/crypto/rand"
-	"vuvuzela.io/internal/debug"
-	"vuvuzela.io/internal/mock"
 )
 
 type chanHandler struct {

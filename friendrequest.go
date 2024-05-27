@@ -8,7 +8,7 @@ import (
 	"crypto/ed25519"
 	"errors"
 
-	"vuvuzela.io/alpenhorn/pkg"
+	"alpenhorn/pkg"
 )
 
 // SendFriendRequest sends a friend request to the given username using
@@ -50,6 +50,7 @@ type OutgoingFriendRequest struct {
 }
 
 // sentFriendRequest is the result of sending an OutgoingFriendRequest.
+//
 //easyjson:readable
 type sentFriendRequest struct {
 	Username     string

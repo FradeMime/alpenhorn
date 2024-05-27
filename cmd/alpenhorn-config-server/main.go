@@ -18,7 +18,7 @@ import (
 
 	"golang.org/x/crypto/acme/autocert"
 
-	"vuvuzela.io/alpenhorn/config"
+	"alpenhorn/config"
 	// Register the convo inner config.
 	_ "vuvuzela.io/vuvuzela/convo"
 )

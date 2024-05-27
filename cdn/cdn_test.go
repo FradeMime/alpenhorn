@@ -20,10 +20,11 @@ import (
 
 	"github.com/davidlazar/go-crypto/encoding/base32"
 
-	"vuvuzela.io/alpenhorn/edtls"
+	"alpenhorn/edtls"
 )
 
 func TestCDN(t *testing.T) {
+	fmt.Println("-------------test CDN---------------")
 	coordinatorPub, coordinatorPriv, _ := ed25519.GenerateKey(rand.Reader)
 	cdnPub, cdnPriv, _ := ed25519.GenerateKey(rand.Reader)
 
@@ -37,10 +38,16 @@ func TestCDN(t *testing.T) {
 	deleteExpiredTickRate = 1 * time.Second
 
 	dbPath := filepath.Join(dir, "cdn.db")
+
+	fmt.Printf("db file path:%s\n", dbPath)
+
 	cdn, err := New(dbPath, coordinatorPub)
 	if err != nil {
+		fmt.Println("db failed")
 		t.Fatal(err)
 	}
+
+	fmt.Println("db success")
 
 	listener, err := edtls.Listen("tcp", "127.0.0.1:8080", cdnPriv)
 	if err != nil {
@@ -57,6 +64,8 @@ func TestCDN(t *testing.T) {
 		t.Fatal(err)
 	}
 
+	fmt.Println("data encoder success")
+
 	{
 		client := &http.Client{
 			Transport: &http.Transport{
@@ -66,8 +75,12 @@ func TestCDN(t *testing.T) {
 			},
 		}
 		nbURL := fmt.Sprintf("https://%s/newbucket?bucket=%s&uploader=%s", "127.0.0.1:8080", "foo/42", base32.EncodeToString(coordinatorPub))
+
+		fmt.Printf("nbUrl : %s\n", nbURL)
+
 		resp, err := client.Post(nbURL, "", nil)
 		if err != nil {
+			fmt.Println("client post error")
 			t.Fatal(err)
 		}
 		if resp.StatusCode != http.StatusOK {
@@ -76,6 +89,7 @@ func TestCDN(t *testing.T) {
 		}
 		resp, err = client.Post("https://127.0.0.1:8080/put?bucket=foo/42", "", buf)
 		if err != nil {
+			fmt.Println("client pub error")
 			t.Fatal(err)
 		}
 		defer resp.Body.Close()
@@ -83,6 +97,7 @@ func TestCDN(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
+		fmt.Printf("response status: %d ; body: %q \n", resp.StatusCode, body)
 		if resp.StatusCode != http.StatusOK {
 			t.Fatalf("bad response status: %s; body = %q", resp.Status, body)
 		}
@@ -101,6 +116,7 @@ func TestCDN(t *testing.T) {
 			t.Fatal(err)
 		}
 		defer resp.Body.Close()
+		fmt.Println("client get success")
 		body, err := ioutil.ReadAll(resp.Body)
 		if err != nil {
 			t.Fatal(err)
@@ -111,6 +127,8 @@ func TestCDN(t *testing.T) {
 		if !bytes.Equal(body, data["2"]) {
 			t.Fatalf("got %q, want %q", body, data["2"])
 		}
+
+		fmt.Printf("get response status: %d; body: %q \n", resp.StatusCode, body)
 	}
 
 	{
@@ -127,8 +145,19 @@ func TestCDN(t *testing.T) {
 			t.Fatal(err)
 		}
 		defer resp.Body.Close()
+		fmt.Printf("client get success")
+		body, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			t.Fatal(err)
+		}
+
 		if resp.StatusCode != http.StatusNotFound {
 			t.Fatalf("expected 404 not found, got %s", resp.Status)
 		}
+
+		fmt.Printf("response status: %d ; body: %q \n", resp.StatusCode, body)
+
 	}
+
+	fmt.Println("-------------test CDN over------------")
 }

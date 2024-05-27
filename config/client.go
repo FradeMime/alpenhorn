@@ -12,12 +12,14 @@ import (
 	"net/http"
 	"time"
 
-	"vuvuzela.io/alpenhorn/errors"
-	"vuvuzela.io/internal/debug"
+	"alpenhorn/internal/debug"
+
+	"alpenhorn/errors"
 )
 
 var StdClient = &Client{
 	ConfigServerURL: "https://configs.vuvuzela.io",
+	// ConfigServerURL: "https://127.0.0.1:53",
 }
 
 type Client struct {

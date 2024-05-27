@@ -18,8 +18,10 @@ import (
 	"sync"
 	"unsafe"
 
-	"vuvuzela.io/alpenhorn/edhttp"
-	"vuvuzela.io/alpenhorn/errors"
+	"alpenhorn/edhttp"
+
+	"alpenhorn/errors"
+
 	"vuvuzela.io/concurrency"
 	"vuvuzela.io/crypto/bn256"
 	"vuvuzela.io/crypto/ibe"

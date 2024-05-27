@@ -4,7 +4,7 @@
 
 package log
 
-import "vuvuzela.io/alpenhorn/log/ansi"
+import "alpenhorn/log/ansi"
 
 // Level is a logging level. The levels are copied from logrus.
 type Level uint32

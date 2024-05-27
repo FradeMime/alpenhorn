@@ -9,7 +9,7 @@ import (
 	"testing"
 	"time"
 
-	"vuvuzela.io/alpenhorn/edtls"
+	"alpenhorn/edtls"
 )
 
 type Ping struct {

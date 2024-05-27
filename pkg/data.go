@@ -12,7 +12,7 @@ import (
 
 	"github.com/dgraph-io/badger"
 
-	"vuvuzela.io/alpenhorn/errors"
+	"alpenhorn/errors"
 )
 
 var (

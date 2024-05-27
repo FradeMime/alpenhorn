@@ -10,12 +10,12 @@ import (
 	"fmt"
 	"sync"
 
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/edhttp"
-	"vuvuzela.io/alpenhorn/errors"
-	"vuvuzela.io/alpenhorn/keywheel"
-	"vuvuzela.io/alpenhorn/pkg"
-	"vuvuzela.io/alpenhorn/typesocket"
+	"alpenhorn/config"
+	"alpenhorn/edhttp"
+	"alpenhorn/errors"
+	"alpenhorn/keywheel"
+	"alpenhorn/pkg"
+	"alpenhorn/typesocket"
 )
 
 // Use github.com/davidlazar/easyjson:

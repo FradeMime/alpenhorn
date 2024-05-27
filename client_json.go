@@ -7,8 +7,8 @@ import (
 	easyjson "github.com/davidlazar/easyjson"
 	jlexer "github.com/davidlazar/easyjson/jlexer"
 	jwriter "github.com/davidlazar/easyjson/jwriter"
-	config "vuvuzela.io/alpenhorn/config"
-	pkg "vuvuzela.io/alpenhorn/pkg"
+	config "alpenhorn/config"
+	pkg "alpenhorn/pkg"
 )
 
 // suppress unused package warning

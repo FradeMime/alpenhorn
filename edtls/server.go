@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"vuvuzela.io/alpenhorn/errors"
+	"alpenhorn/errors"
 )
 
 func Listen(network, laddr string, key ed25519.PrivateKey) (net.Listener, error) {

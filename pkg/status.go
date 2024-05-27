@@ -12,8 +12,8 @@ import (
 
 	"github.com/dgraph-io/badger"
 
-	"vuvuzela.io/alpenhorn/bloom"
-	"vuvuzela.io/alpenhorn/log"
+	"alpenhorn/bloom"
+	"alpenhorn/log"
 )
 
 type statusArgs struct {

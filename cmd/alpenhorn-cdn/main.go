@@ -15,13 +15,17 @@ import (
 	"path/filepath"
 	"text/template"
 
-	"vuvuzela.io/alpenhorn/cdn"
-	"vuvuzela.io/alpenhorn/cmd/cmdutil"
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/edtls"
-	"vuvuzela.io/alpenhorn/encoding/toml"
-	"vuvuzela.io/alpenhorn/internal/alplog"
-	"vuvuzela.io/alpenhorn/log"
+	"alpenhorn/internal/alplog"
+
+	"alpenhorn/config"
+
+	"alpenhorn/cdn"
+
+	"alpenhorn/cmd/cmdutil"
+	"alpenhorn/edtls"
+	"alpenhorn/encoding/toml"
+	"alpenhorn/log"
+
 	"vuvuzela.io/crypto/rand"
 )
 
@@ -50,6 +54,7 @@ listenAddr = {{.ListenAddr | printf "%q" }}
 `
 
 func writeNewConfig(path string) {
+	fmt.Println("==================cdn init config===================")
 	publicKey, privateKey, err := ed25519.GenerateKey(rand.Reader)
 	if err != nil {
 		panic(err)
@@ -76,9 +81,14 @@ func writeNewConfig(path string) {
 		log.Fatal(err)
 	}
 	fmt.Printf("wrote %s\n", path)
+
+	fmt.Println("==================cdn over init config==============")
+
 }
 
 func main() {
+	fmt.Println("==================cdn===================")
+
 	flag.Parse()
 
 	if err := os.MkdirAll(*persistPath, 0700); err != nil {
@@ -88,6 +98,7 @@ func main() {
 
 	if *doinit {
 		if cmdutil.Overwrite(confPath) {
+			fmt.Println("==================cdn overwrite===================")
 			writeNewConfig(confPath)
 		}
 		return
@@ -97,6 +108,9 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	fmt.Printf("config data: %q\n", data)
+
 	conf := new(Config)
 	err = toml.Unmarshal(data, conf)
 	if err != nil {
@@ -115,6 +129,7 @@ func main() {
 
 	signedConfig, err := config.StdClient.CurrentConfig("AddFriend")
 	if err != nil {
+		fmt.Println("config.StdClient.CurrentConfig network error!!!!1")
 		log.Fatal(err)
 	}
 	addFriendConfig := signedConfig.Inner.(*config.AddFriendConfig)

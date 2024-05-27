@@ -18,13 +18,16 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
 
-	"vuvuzela.io/alpenhorn/addfriend"
-	"vuvuzela.io/alpenhorn/cmd/cmdutil"
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/dialing"
-	"vuvuzela.io/alpenhorn/edtls"
-	"vuvuzela.io/alpenhorn/encoding/toml"
-	"vuvuzela.io/alpenhorn/log"
+	"alpenhorn/config"
+
+	"alpenhorn/addfriend"
+
+	"alpenhorn/cmd/cmdutil"
+	"alpenhorn/dialing"
+	"alpenhorn/edtls"
+	"alpenhorn/encoding/toml"
+	"alpenhorn/log"
+
 	"vuvuzela.io/crypto/rand"
 	"vuvuzela.io/vuvuzela/mixnet"
 	pb "vuvuzela.io/vuvuzela/mixnet/convopb"

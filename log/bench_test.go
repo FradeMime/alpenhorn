@@ -16,7 +16,7 @@ import (
 
 	"github.com/sirupsen/logrus"
 
-	"vuvuzela.io/alpenhorn/log"
+	"alpenhorn/log"
 )
 
 var (

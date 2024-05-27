@@ -10,14 +10,15 @@ import (
 
 	"github.com/davidlazar/go-crypto/encoding/base32"
 
-	"vuvuzela.io/alpenhorn/addfriend"
-	"vuvuzela.io/alpenhorn/bloom"
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/coordinator"
-	"vuvuzela.io/alpenhorn/dialing"
-	"vuvuzela.io/alpenhorn/errors"
-	"vuvuzela.io/alpenhorn/log"
-	"vuvuzela.io/alpenhorn/typesocket"
+	"alpenhorn/addfriend"
+	"alpenhorn/bloom"
+	"alpenhorn/config"
+	"alpenhorn/coordinator"
+	"alpenhorn/dialing"
+	"alpenhorn/errors"
+	"alpenhorn/log"
+	"alpenhorn/typesocket"
+
 	"vuvuzela.io/crypto/onionbox"
 	"vuvuzela.io/vuvuzela/mixnet"
 )

@@ -10,7 +10,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"vuvuzela.io/internal/ioutil2"
+	"alpenhorn/internal/ioutil2"
 )
 
 // version is the current version number of the persisted state format.

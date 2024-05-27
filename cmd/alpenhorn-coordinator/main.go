@@ -18,13 +18,17 @@ import (
 	"text/template"
 	"time"
 
-	"vuvuzela.io/alpenhorn/cmd/cmdutil"
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/coordinator"
-	"vuvuzela.io/alpenhorn/edtls"
-	"vuvuzela.io/alpenhorn/encoding/toml"
-	"vuvuzela.io/alpenhorn/internal/alplog"
-	"vuvuzela.io/alpenhorn/log"
+	"alpenhorn/internal/alplog"
+
+	"alpenhorn/config"
+
+	"alpenhorn/coordinator"
+
+	"alpenhorn/encoding/toml"
+
+	"alpenhorn/cmd/cmdutil"
+	"alpenhorn/edtls"
+	"alpenhorn/log"
 )
 
 var (

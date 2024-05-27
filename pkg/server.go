@@ -21,9 +21,10 @@ import (
 
 	"github.com/dgraph-io/badger"
 
-	"vuvuzela.io/alpenhorn/edhttp"
-	"vuvuzela.io/alpenhorn/errors"
-	"vuvuzela.io/alpenhorn/log"
+	"alpenhorn/edhttp"
+	"alpenhorn/errors"
+	"alpenhorn/log"
+
 	"vuvuzela.io/crypto/bls"
 	"vuvuzela.io/crypto/ibe"
 )

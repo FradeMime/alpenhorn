@@ -10,7 +10,8 @@ import (
 	"encoding/binary"
 	"unsafe"
 
-	"vuvuzela.io/alpenhorn/pkg"
+	"alpenhorn/pkg"
+
 	"vuvuzela.io/crypto/bls"
 )
 

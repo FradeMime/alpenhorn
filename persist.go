@@ -9,8 +9,9 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/internal/ioutil2"
+	"alpenhorn/internal/ioutil2"
+
+	"alpenhorn/config"
 )
 
 //easyjson:readable
@@ -31,6 +32,7 @@ type persistedState struct {
 
 // persistedFriend is the persisted representation of the Friend type.
 // We use this because Friend.extraData is unexported but must be persisted.
+//
 //easyjson:readable
 type persistedFriend struct {
 	Username    string

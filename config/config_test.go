@@ -14,8 +14,10 @@ import (
 
 	"github.com/davidlazar/go-crypto/encoding/base32"
 
-	"vuvuzela.io/alpenhorn/pkg"
-	"vuvuzela.io/internal/debug"
+	"alpenhorn/internal/debug"
+
+	"alpenhorn/pkg"
+
 	"vuvuzela.io/vuvuzela/mixnet"
 )
 

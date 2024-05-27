@@ -13,9 +13,12 @@ import (
 	"os"
 	"path/filepath"
 
-	"vuvuzela.io/alpenhorn/cmd/guardian"
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/edhttp"
+	"alpenhorn/config"
+
+	"alpenhorn/cmd/guardian"
+
+	"alpenhorn/edhttp"
+
 	"vuvuzela.io/vuvuzela/convo"
 	"vuvuzela.io/vuvuzela/coordinator"
 )

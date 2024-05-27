@@ -12,7 +12,7 @@ import (
 	"os"
 	"time"
 
-	"vuvuzela.io/alpenhorn/config"
+	"alpenhorn/config"
 	// Register the convo inner config.
 	_ "vuvuzela.io/vuvuzela/convo"
 )
@@ -43,6 +43,8 @@ func main() {
 		log.Fatalf("failed to fetch current config: %s", err)
 	}
 	confHash := conf.Hash()
+
+	fmt.Printf("confHash: %s \n", confHash)
 
 	if !*printCurrent {
 		conf.Inner.UseLatestVersion()

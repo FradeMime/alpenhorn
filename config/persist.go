@@ -9,8 +9,9 @@ import (
 	"encoding/json"
 	"io/ioutil"
 
-	"vuvuzela.io/alpenhorn/errors"
-	"vuvuzela.io/internal/ioutil2"
+	"alpenhorn/internal/ioutil2"
+
+	"alpenhorn/errors"
 )
 
 type persistedState struct {

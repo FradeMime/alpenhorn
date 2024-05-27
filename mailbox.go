@@ -11,8 +11,8 @@ import (
 	"io/ioutil"
 	"net/url"
 
-	"vuvuzela.io/alpenhorn/config"
-	"vuvuzela.io/alpenhorn/errors"
+	"alpenhorn/config"
+	"alpenhorn/errors"
 )
 
 func (c *Client) fetchMailbox(cdnConfig config.CDNServerConfig, baseURL string, mailboxID uint32) ([]byte, error) {

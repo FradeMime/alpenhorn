@@ -16,7 +16,6 @@ import (
 	"text/template"
 
 	"google.golang.org/grpc"
-	"google.golang.org/grpc/credentials"
 
 	"alpenhorn/config"
 
@@ -24,7 +23,6 @@ import (
 
 	"alpenhorn/cmd/cmdutil"
 	"alpenhorn/dialing"
-	"alpenhorn/edtls"
 	"alpenhorn/encoding/toml"
 	"alpenhorn/log"
 
@@ -133,6 +131,7 @@ func main() {
 
 	signedConfig, err := config.StdClient.CurrentConfig("AddFriend")
 	if err != nil {
+		fmt.Println("------client config error---------")
 		log.Fatal(err)
 	}
 	addFriendConfig := signedConfig.Inner.(*config.AddFriendConfig)
@@ -155,8 +154,10 @@ func main() {
 		},
 	}
 
-	creds := credentials.NewTLS(edtls.NewTLSServerConfig(conf.PrivateKey))
-	grpcServer := grpc.NewServer(grpc.Creds(creds))
+	// creds := credentials.NewTLS(edtls.NewTLSServerConfig(conf.PrivateKey))
+	// grpcServer := grpc.NewServer(grpc.Creds(creds))
+
+	grpcServer := grpc.NewServer()
 
 	pb.RegisterMixnetServer(grpcServer, mixServer)
 

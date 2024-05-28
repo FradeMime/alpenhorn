@@ -6,7 +6,9 @@ package main
 
 import (
 	"crypto/tls"
+	"crypto/x509"
 	"encoding/json"
+	"encoding/pem"
 	"flag"
 	"fmt"
 	"io/ioutil"
@@ -16,10 +18,9 @@ import (
 	"path/filepath"
 	"time"
 
-	"golang.org/x/crypto/acme/autocert"
-
 	"alpenhorn/config"
 	// Register the convo inner config.
+
 	_ "vuvuzela.io/vuvuzela/convo"
 )
 
@@ -55,24 +56,36 @@ func main() {
 		os.Exit(1)
 	}
 
-	certManager := autocert.Manager{
-		Cache:      autocert.DirCache(filepath.Join(*persistPath, "ssl")),
-		Prompt:     autocert.AcceptTOS,
-		HostPolicy: autocert.HostWhitelist(*hostname),
-	}
-	// Listen on :80 for http-01 ACME challenge.
-	go http.ListenAndServe(":http", certManager.HTTPHandler(nil))
+	// certManager := autocert.Manager{
+	// 	Cache:      autocert.DirCache(filepath.Join(*persistPath, "ssl")),
+	// 	Prompt:     autocert.AcceptTOS,
+	// 	HostPolicy: autocert.HostWhitelist(*hostname),
+	// }
+	// // Listen on :80 for http-01 ACME challenge.
+	// go http.ListenAndServe(":http", certManager.HTTPHandler(nil))
+
+	// httpServer := &http.Server{
+	// 	Addr:      ":https",
+	// 	Handler:   server,
+	// 	TLSConfig: &tls.Config{GetCertificate: certManager.GetCertificate},
+
+	// 	ReadTimeout:  10 * time.Second,
+	// 	WriteTimeout: 10 * time.Second,
+	// }
+
+	// log.Printf("Listening on https://%s", *hostname)
+	// log.Fatal(httpServer.ListenAndServeTLS("", ""))
 
 	httpServer := &http.Server{
-		Addr:      ":https",
-		Handler:   server,
-		TLSConfig: &tls.Config{GetCertificate: certManager.GetCertificate},
+		Addr:    ":http",
+		Handler: server,
 
 		ReadTimeout:  10 * time.Second,
 		WriteTimeout: 10 * time.Second,
 	}
-	log.Printf("Listening on https://%s", *hostname)
-	log.Fatal(httpServer.ListenAndServeTLS("", ""))
+
+	log.Printf("Listening on http://%s", *hostname)
+	log.Fatal(httpServer.ListenAndServe())
 }
 
 func setConfig(serverPath string) {
@@ -108,5 +121,25 @@ func setConfig(serverPath string) {
 		fmt.Printf("Set current %q config in new state.\n", conf.Service)
 	} else {
 		log.Fatalf("unexpected error loading server state: %s", err)
+	}
+}
+
+func printCertificateInfo(cert *tls.Certificate) {
+	for _, certDER := range cert.Certificate {
+		cert, err := x509.ParseCertificate(certDER)
+		if err != nil {
+			log.Printf("Failed to parse certificate: %v", err)
+			continue
+		}
+
+		// 打印证书的基本信息
+		fmt.Printf("Subject: %s\n", cert.Subject)
+		fmt.Printf("Issuer: %s\n", cert.Issuer)
+		fmt.Printf("Validity: NotBefore=%s, NotAfter=%s\n", cert.NotBefore, cert.NotAfter)
+		fmt.Printf("DNS Names: %v\n", cert.DNSNames)
+
+		// 打印证书的PEM编码
+		pemBlock := &pem.Block{Type: "CERTIFICATE", Bytes: cert.Raw}
+		fmt.Printf("PEM:\n%s\n", string(pem.EncodeToMemory(pemBlock)))
 	}
 }

@@ -7,6 +7,7 @@ package pkg
 import (
 	"crypto/ed25519"
 	"crypto/rand"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"os"
@@ -31,9 +32,21 @@ func BenchmarkRegister(b *testing.B) {
 		},
 		SigningKey: serverPriv,
 	}
+	fmt.Println("-------------------------------")
+	dataconf2, err := json.MarshalIndent(conf, "", "  ")
+	if err != nil {
+		fmt.Println("nillllllllllllll")
+
+		panic(err)
+	}
+
+	fmt.Printf("%s\n", dataconf2)
+	fmt.Println("-------------------------------")
 
 	srv, err := NewServer(conf)
 	if err != nil {
+		fmt.Println("=====================")
+
 		b.Fatal(err)
 	}
 	defer srv.Close()

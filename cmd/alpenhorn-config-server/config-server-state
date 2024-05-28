@@ -1,71 +1,50 @@
 {
   "AllConfigs": {
-    "sy59zjz31p1t55jfsq8pvvt7f5dg29qbndvd57a3nbd8bnnz2dqg": {
+    "wdj33gdfe92xtpzsy5mnhexr8nadm9yx4knjy8ck1yf0sr97f500": {
       "Version": 1,
-      "Created": "2019-02-05T15:50:15.375810566-05:00",
-      "Expires": "2020-02-05T15:50:15.375810566-05:00",
-      "PrevConfigHash": "j1jdb7xpjy1a3ygkktaxq1bb7nmwwpdtdvkbx6vynn91symm962g",
+      "Created": "2023-02-05T15:50:15.375810566-05:00",
+      "Expires": "2026-02-05T15:50:15.375810566-05:00",
+      "PrevConfigHash": "",
       "Service": "AddFriend",
       "Inner": {
         "Version": 2,
         "Coordinator": {
-          "Key": "7r92d2sh4jv9a4ywtnrcdscn9g5ghs73t2bsqbvc9ne6p11x9gp0",
-          "Address": "alpenhorn-coordinator.vuvuzela.io:8443"
+          "Key": "xn34jyzhwv97yabyjee08wkxpjc7e27n888hnf3041tk1wzc8gdg",
+          "Address": "localhost:8000"
         },
         "PKGServers": [
           {
-            "Key": "c5rahdf841n8enjnptgt1xv319sfrkv304xeap84tyr8e34jn10g",
-            "Address": "pkg1.vuvuzela.io:8443"
-          },
-          {
-            "Key": "nkafdfvn8tvng4m6q59v34tcyydqys0xt0by33jfqdcskkshwn00",
-            "Address": "nickolai.srv.vuvuzela.io:54331"
-          },
-          {
-            "Key": "h57d2hyyaq8d8abasb9v7d7x92yh92c5cx7g97mtjqp463v3whz0",
-            "Address": "pkg2.vuvuzela.io:8443"
+            "Key": "42xssbczpkf61rp7yayhx7av797wh3qtb4ek4rxxragrp57xbdk0",
+            "Address": "localhost:8000"
           }
         ],
         "MixServers": [
           {
-            "Key": "srwjrk35rqkqr2v54ptpemza07tnv4tfffcre8y3gxy2nnx6ww60",
-            "Address": "alpenhorn-mixer1.vuvuzela.io:28000"
-          },
-          {
-            "Key": "c25ye27wdr5mm9g211axst784dywxnxmc8vrmb5westzfqakyve0",
-            "Address": "nickolai.srv.vuvuzela.io:54332"
-          },
-          {
-            "Key": "9vsq4pde5eb2esjepb28dk9dhvgrjf64vgw7we839f17g6d38nzg",
-            "Address": "alpenhorn-mixer2.vuvuzela.io:28000"
+            "Key": "hkb7kyk64xjxvct0r0e28ycz9tpzce05q524ssm47kyg6bxnf6vg",
+            "Address": "localhost:28000"
           }
         ],
         "CDNServer": {
-          "Key": "1r0s6ktzdqjkhhfrdk18zgsan8h4v55rqbszzg2zsfkp068v8r9g",
-          "Address": "alpenhorn-cdn.vuvuzela.io:8080"
+          "Key": "v5vc8c76yfpv9pd6zc3es6r5r570gkss8zzcsyv50hmhh58cbhbg",
+          "Address": "localhost:8080"
         },
         "Registrar": {
-          "Key": "ahyzedx86ppr1904819e5g8zjfazsrz7e1jb3zqn3h11emxbcrm0",
-          "Address": "vuvuzela.io"
+          "Key": null,
+          "Address": ""
         }
       },
       "Guardians": [
         {
-          "Username": "david",
-          "Key": "awg0sme332hk2bp1d9j2d7kscarysy5y0xcvp4fcf152vzxf764g"
-        },
-        {
-          "Username": "nickolai",
-          "Key": "e3yxhj61nj49y5gzs1qtcrzdf84afg2abqa6pafsh2749wnkrggg"
+          "Username": "caoqiulei",
+          "Key": "cb6vw203rhbyyanfqxgvk33kyxf0mt1m67cfxgbc7nprnzjhgz10"
         }
       ],
       "Signatures": {
-        "e3yxhj61nj49y5gzs1qtcrzdf84afg2abqa6pafsh2749wnkrggg": "3w1qx4jk30538mqvkdw3tqhvxw3aap5xkp9ehye1m8fyy5r30a8mk0dzq7f4sm6p3yz6x2defqp2e5fp2etyb7jxas238ybx8g7tw10",
-        "awg0sme332hk2bp1d9j2d7kscarysy5y0xcvp4fcf152vzxf764g": "xjp5ety18a2kccw0apgg66d2tgyr2zjnps990yn417d3xkn775xt73ccxktwe2z0f9k336pr1wxwfyaktb2fqhc5dxmxxh2b4xd5610"
+        "cb6vw203rhbyyanfqxgvk33kyxf0mt1m67cfxgbc7nprnzjhgz10": "ybbq0dar0fqzzptmec2b28pkjg076x5956pdhjx3szwy03e83cv6hb5dqtvcfeb7m8zgcjq0rnvgqgh8zt01rrgy7mjb1e2m7g5c03g"
       }
     }
   },
   "CurrentConfig": {
-    "AddFriend": "sy59zjz31p1t55jfsq8pvvt7f5dg29qbndvd57a3nbd8bnnz2dqg"
+    "AddFriend": "wdj33gdfe92xtpzsy5mnhexr8nadm9yx4knjy8ck1yf0sr97f500"
   }
 }

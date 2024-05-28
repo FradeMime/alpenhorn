@@ -18,8 +18,8 @@ import (
 )
 
 var StdClient = &Client{
-	ConfigServerURL: "https://configs.vuvuzela.io",
-	// ConfigServerURL: "https://127.0.0.1:53",
+	// ConfigServerURL: "https://configs.vuvuzela.io",
+	ConfigServerURL: "http://127.0.0.1:80",
 }
 
 type Client struct {
@@ -34,6 +34,7 @@ func (c *Client) CurrentConfig(service string) (*SignedConfig, error) {
 	url := fmt.Sprintf("%s/current?service=%s", c.ConfigServerURL, service)
 	resp, err := httpClient.Get(url)
 	if err != nil {
+		fmt.Println("===========")
 		return nil, err
 	}
 	defer resp.Body.Close()

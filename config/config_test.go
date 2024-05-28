@@ -8,6 +8,7 @@ import (
 	"crypto/ed25519"
 	"crypto/rand"
 	"encoding/json"
+	"fmt"
 	"reflect"
 	"testing"
 	"time"
@@ -39,10 +40,19 @@ func TestVerify(t *testing.T) {
 		Signatures: make(map[string][]byte),
 	}
 
+	fmt.Println("===========================conf1================================")
+	dataconf1, err := json.MarshalIndent(conf1, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("%s\n", dataconf1)
+	fmt.Println("================================================================")
+
 	if err := conf1.Validate(); err != nil {
 		t.Fatal(err)
 	}
-	err := conf1.Verify()
+	err = conf1.Verify()
 	if err == nil {
 		t.Fatal("expecting Verify to fail")
 	}
@@ -108,6 +118,16 @@ func TestVerify(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
+
+	fmt.Println("===========================conf2================================")
+	dataconf2, err := json.MarshalIndent(conf2, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("%s\n", dataconf2)
+	fmt.Println("================================================================")
+
 }
 
 func newGuardian(username string) (Guardian, ed25519.PrivateKey) {

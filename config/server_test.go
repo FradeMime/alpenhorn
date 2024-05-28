@@ -7,6 +7,8 @@ package config
 import (
 	"crypto/ed25519"
 	"crypto/rand"
+	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"net"
 	"net/http"
@@ -115,6 +117,15 @@ func TestServer(t *testing.T) {
 			},
 		},
 	}
+
+	fmt.Println("====================测试  输出config===================")
+	dataTest, err := json.MarshalIndent(newConfig, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Printf("%s\n", dataTest)
+	fmt.Println("====================测试  完毕=========================")
 
 	{
 		// Try uploading a new config without the guardian's signature.
